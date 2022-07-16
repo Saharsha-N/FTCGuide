@@ -79,7 +79,8 @@
 
     // Sidebar.
     var $sidebar = $('#sidebar'),
-        $sidebar_inner = $sidebar.children('.inner');
+        $sidebar_inner = $sidebar.children('.inner'),
+        $content_inner = $('.content');
 
     // Inactive by default on <= large.
     breakpoints.on('<=large', function() {
@@ -107,10 +108,10 @@
 
             // Toggle.
             $sidebar.toggleClass('inactive');
+            $content_inner.toggleClass('blur');
 
             // Change appearance
             $(this).toggleClass('active');
-
         });
 
     // Events.
@@ -171,6 +172,7 @@
 
         // Deactivate.
         $sidebar.addClass('inactive');
+        $content_inner.removeClass('blur');
 
     });
 

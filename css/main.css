@@ -266,6 +266,10 @@ a {
     text-decoration: none;
 }
 
+a.logo {
+    max-width: 24%;
+}
+
 a.logo:hover {
     color: white !important;
     transition: 300ms all;
@@ -2135,6 +2139,15 @@ input[type="radio"]+label:before {
     width: 100%;
 }
 
+.card {
+    transform-style: preserve-3d;
+}
+
+.card:hover .tilt-header {
+    opacity: 1;
+    transition: .3s all ease;
+}
+
 .logo-after {
     left: 2px;
     bottom: 2px;
@@ -2143,7 +2156,22 @@ input[type="radio"]+label:before {
     object-fit: cover;
     object-position: center;
     z-index: 999;
+    transform-style: preserve-3d;
     filter: sepia(100%);
+}
+
+.tilt-header {
+    opacity: 0;
+    font-size: 28px;
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    left: 10%;
+    right: 10%;
+    text-align: center;
+    z-index: 9999;
+    transform: translateZ(50px);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
 }
 
 header.main {
@@ -2317,13 +2345,13 @@ ul.actions.fit.stacked {
 /* Sidebar Menu Trigger */
 
 .nav div {
-    height: 4px;
-    margin: 5px 0;
+    height: 5px;
+    margin: 7px 0;
     border-radius: 25px;
 }
 
 .nav {
-    width: 30px;
+    width: 40px;
     display: block;
     margin: 1em 0 0 1em;
 }
@@ -2332,6 +2360,7 @@ ul.actions.fit.stacked {
 .two,
 .three {
     background-color: white;
+    transition: 0.5s ease-in-out;
 }
 
 .toggle.active .one {
@@ -2343,10 +2372,10 @@ ul.actions.fit.stacked {
 }
 
 .toggle.active .three {
-    -moz-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-    -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-    -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-    transform: translateY(-6px) translateX(1px) rotate(-45deg);
+    -moz-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+    -ms-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+    -webkit-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+    transform: translateY(-12px) translateX(1px) rotate(-45deg);
     transition: 0.5s all ease-in-out;
 }
 
@@ -2379,10 +2408,10 @@ ul.actions.fit.stacked {
         transition: 0.5s all ease-in-out;
     }
     .toggle .three {
-        -moz-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-        -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-        -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-        transform: translateY(-6px) translateX(1px) rotate(-45deg);
+        -moz-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+        -ms-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+        -webkit-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+        transform: translateY(-12px) translateX(1px) rotate(-45deg);
         transition: 0.5s all ease-in-out;
     }
     .toggle .two {
@@ -3252,10 +3281,16 @@ button:disabled,
     -ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
     transition: margin-left 0.5s ease, box-shadow 0.5s ease;
     background-color: rgb(71, 71, 71);
-    border-right: 2px solid var(--main);
+    border-right: 4px inset var(--main);
+    outline-offset: 5px;
     font-size: 0.9em;
     position: relative;
     width: 26em;
+}
+
+.blur {
+    filter: blur(3px);
+    transition: 0.5s all ease-in-out;
 }
 
 #sidebar h2 {
@@ -3312,15 +3347,15 @@ button:disabled,
     border: 0;
     display: block;
     height: 7.5em;
-    left: 26em;
+    left: 26.5em;
     line-height: 7.5em;
     outline: 0;
-    overflow: hidden;
+    overflow: visible;
     position: absolute;
     text-align: center;
     text-indent: -15em;
     white-space: nowrap;
-    top: 0;
+    top: 0.5em;
     width: 6em;
     z-index: 10000;
 }
@@ -3450,34 +3485,63 @@ button:disabled,
     }
 }
 
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 1280px) {
     #sidebar .toggle {
         text-indent: 7.25em;
         width: 7.25em;
         background-color: var(--main);
-        height: 50px !important;
-        width: 55px !important;
+        height: 60px !important;
+        width: 65px !important;
         border-radius: 0 15px 15px 0;
     }
     #sidebar .toggle:before {
-        color: #7f888f;
-        margin-left: -0.0625em;
-        margin-top: -0.25em;
-        font-size: 1.1rem;
+        position: absolute;
+        content: '';
+        left: 19px;
+        width: 15px;
+        height: 15px;
+        border: none;
+        top: 59px;
+        background-color: var(--main);
         z-index: 1;
+        -webkit-mask-image: radial-gradient(circle farthest-side at bottom right, transparent 99%, white 100%);
     }
     #sidebar .toggle:after {
-        border-radius: 0.375em;
+        border-radius: 0 0 5px 0;
         content: '';
-        height: 3.5em;
-        left: 1em;
+        height: 30px;
+        background-color: var(--main);
+        left: 0%;
         position: absolute;
-        top: 1em;
-        width: 5em;
+        top: 55px;
+        width: 10px;
+    }
+    #sidebar .nav {
+        margin-top: 15px !important;
     }
     .toggle.active .two {
         background-color: var(--main) !important;
         transition: 0.5s all;
+    }
+    .toggle.active .one {
+        -moz-transform: translateY(6px) translateX(1px) rotate(45deg);
+        -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
+        -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
+        transform: translateY(12px) translateX(1px) rotate(45deg);
+        transition: 0.5s all ease-in-out;
+    }
+    .toggle.active .three {
+        -moz-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+        -ms-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+        -webkit-transform: translateY(-12px) translateX(1px) rotate(-45deg);
+        transform: translateY(-12px) translateX(1px) rotate(-45deg);
+        transition: 0.5s all ease-in-out;
+    }
+}
+
+@media screen and (max-width: 1290px) {
+    .blur {
+        filter: blur(3px) !important;
     }
 }
 
@@ -3517,6 +3581,12 @@ button:disabled,
 @media screen and (max-width: 1680px) {
     #header {
         padding-top: 5em;
+    }
+}
+
+@media screen and (max-width: 2500px) {
+    .blur {
+        filter: blur(0px) !important;
     }
 }
 
@@ -3642,7 +3712,7 @@ button:disabled,
 }
 
 #slider ul li img {
-    width: 735px !important;
+    width: 750px !important;
     height: 500px !important;
     z-index: -1;
     margin-left: -5em !important;
