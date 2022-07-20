@@ -2415,7 +2415,7 @@ ul.actions.fit.stacked {
         transition: 0.5s all ease-in-out;
     }
     .toggle .two {
-        background-color: rgb(39, 39, 39);
+        background-color: black;
         transition: 0.5s all;
     }
     .toggle.active .one {
