@@ -275,38 +275,38 @@
     var $one = $('#first');
     var $two = $('#second');
     var $three = $('#third');
-    //var $four = $('$fourth');
+    var $four = $('#fourth');
     var $button1 = $('#button1');
     var $button2 = $('#button2');
     var $button3 = $('#button3');
-    //var $button4 = $('#button4');
+    var $button4 = $('#button4');
 
     $button1.on('click', function() {
         $one.addClass('show');
         $two.removeClass('show');
         $three.removeClass('show');
-        //$four.removeClass('show');
+        $four.removeClass('show');
     });
     $button2.on('click', function() {
         $one.removeClass('show');
         $one.css('display', 'none');
         $two.addClass('show');
         $three.removeClass('show');
-        //$four.removeClass('show');
+        $four.removeClass('show');
     });
     $button3.on('click', function() {
         $one.removeClass('show');
         $one.css('display', 'none');
         $two.removeClass('show');
         $three.addClass('show');
-        //$four.removeClass('show');
+        $four.removeClass('show');
     });
-    /*$button4.on('click', function() {
+    $button4.on('click', function() {
         $one.removeClass('show');
         $one.css('display', 'none');
         $two.removeClass('show');
         $three.removeClass('show');
         $four.addClass('show');
-    })*/
+    })
 
 })(jQuery);

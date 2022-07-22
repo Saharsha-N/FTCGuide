@@ -110,9 +110,11 @@ section {
     --main-border: #94b6ff73;
 }
 
-body {
+body,
+html {
     line-height: 1;
     color: white !important;
+    scroll-behavior: smooth;
 }
 
 ol,
@@ -590,7 +592,8 @@ span.loading:before {
 
 #first,
 #second,
-#third {
+#third,
+#fourth {
     width: 100%;
     opacity: 0;
     transition: 1000ms all;
@@ -611,6 +614,29 @@ span.loading:before {
     }
 }
 
+/* Anchor Link :target Styling */
+
+#subteamsHeader, 
+#ratioHeader, 
+#organizationHeader, 
+#timeHeader {
+    scroll-margin-top: 50px;
+}
+
+#subteamsHeader:target, 
+#ratioHeader:target, 
+#organizationHeader:target, 
+#timeHeader:target {
+    color: var(--main);
+    text-shadow: 0px 0px 2px var(--main);
+}
+
+#subteamsHeader:not(:target), 
+#ratioHeader:not(:target), 
+#organizationHeader:not(:target), 
+#timeHeader:not(:target) {
+    color: white;
+}
 
 /* Background Video */
 

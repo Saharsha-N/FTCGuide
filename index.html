@@ -5,6 +5,8 @@
     <title>FTC Guide</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Website for people who are starting FTC, providing valuable insight for rookie teams to help them succeed their first year">
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- Bootstrap Icons (bi) -->
@@ -12,7 +14,7 @@
     <!-- Font Awesome Icons (fa) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--Animation Library-->
+    <!-- Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -154,7 +156,7 @@
                             <article>
                                 <span class="icon solid"><span class="fa fa-signal"></span></span>
                                 <div class="content">
-                                    <h3>Gracious Professionalism</h3>
+                                    <h3>Game Analysis</h3>
                                     <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
                                 </div>
                             </article>
@@ -770,141 +772,6 @@ $window.on('load', function() {
         $ring.css('display', 'none');
     }, loadTime + 1000);
 });
-
-// ... stopped resizing.
-var resizeTimeout;
-
-$window.on('resize', function() {
-
-    // Mark as resizing.
-    $body.addClass('is-resizing');
-
-
-    // Unmark after delay.
-    clearTimeout(resizeTimeout);
-
-    resizeTimeout = setTimeout(function() {
-        $body.removeClass('is-resizing');
-    }, 20);
-
-});
-
-// Fixes.
-
-// Object fit images.
-if (!browser.canUse('object-fit') ||
-    browser.name == 'safari')
-    $('.image.object').each(function() {
-
-        var $this = $(this),
-            $img = $this.children('img');
-
-        // Hide original image.
-        $img.css('opacity', '0');
-
-        // Set background.
-        $this
-            .css('background-image', 'url("' + $img.attr('src') + '")')
-            .css('background-size', $img.css('object-fit') ? $img.css('object-fit') : 'cover')
-            .css('background-position', $img.css('object-position') ? $img.css('object-position') : 'center');
-
-    });
-
-// Sidebar.
-var $sidebar = $('#sidebar'),
-    $sidebar_inner = $sidebar.children('.inner');
-
-// Inactive by default on <= large.
-breakpoints.on('<=large', function() {
-    $sidebar.addClass('inactive');
-});
-
-breakpoints.on('>large', function() {
-    $sidebar.removeClass('inactive');
-});
-
-// Hack: Workaround for Chrome/Android scrollbar position bug.
-if (browser.os == 'android' &&
-    browser.name == 'chrome')
-    $('<!--<style>#sidebar .inner::-webkit-scrollbar { display: none; }</style>-->')
-    .appendTo($head);
-
-// Toggle.
-$('<!--<a href="#sidebar" class="toggle"><div class="nav"><div class="one"></div><div class="two"></div><div class="three"></div></div></a>-->')
-    .appendTo($sidebar)
-    .on('click', function(event) {
-
-        // Prevent default.
-        event.preventDefault();
-        event.stopPropagation();
-
-        // Toggle.
-        $sidebar.toggleClass('inactive');
-
-        // Change appearance
-        $(this).toggleClass('active');
-
-    });
-
-// Events.
-
-// Link clicks.
-$sidebar.on('click', 'a', function(event) {
-
-    // >large? Bail.
-    if (breakpoints.active('>large'))
-        return;
-
-    // Vars.
-    var $a = $(this),
-        href = $a.attr('href'),
-        target = $a.attr('target');
-
-    // Prevent default.
-    event.preventDefault();
-    event.stopPropagation();
-
-    // Check URL.
-    if (!href || href == '#' || href == '')
-        return;
-
-    // Hide sidebar.
-    $sidebar.addClass('inactive');
-
-    // Redirect to href.
-    setTimeout(function() {
-
-        if (target == '_blank')
-            window.open(href);
-        else
-            window.location.href = href;
-
-    }, 500);
-
-});
-
-// Prevent certain events inside the panel from bubbling.
-$sidebar.on('click touchend touchstart touchmove', function(event) {
-
-    // >large? Bail.
-    if (breakpoints.active('>large'))
-        return;
-
-    // Prevent propagation.
-    event.stopPropagation();
-
-});
-
-// Hide panel on body click/tap.
-$body.on('click touchend', function(event) {
-
-    // >large? Bail.
-    if (breakpoints.active('>large'))
-        return;
-
-    // Deactivate.
-    $sidebar.addClass('inactive');
-
 })})(jQuery);
 </code></pre>
 
@@ -913,6 +780,91 @@ $body.on('click touchend', function(event) {
 
                     </section>
 
+                </div>
+            </div>
+        </div>
+
+        <div id="fourth" class="content" style="display: none;">
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+
+                    <!-- Header -->
+                    <header id="header">
+                        <a href="index.html" class="logo"><strong>Downingtown Area Robotics</strong></a>
+                        <ul class="icons">
+                            <li><a href="#" class="fa fa-twitter"><span class="label"></span></a></li>
+                            <li><a href="#" class="fa fa-facebook-f"><span class="label"></span></a></li>
+                            <li><a href="#" class="fa fa-snapchat-ghost"><span class="label"></span></a></li>
+                            <li><a href="#" class="fa fa-instagram"><span class="label"></span></a></li>
+                            <li><a href="#" class="fa fa-youtube"><span class="label"></span></a></li>
+                        </ul>
+                    </header>
+
+                    <!-- Content -->
+                    <section>
+                        <header class="main">
+                            <h1 style="z-index: 200 !important; position: relative;">Team Management</h1>
+                            <img src="images/swirl.png" alt="" class="swirl">
+                        </header>
+
+                        <br>
+
+                        <div class="box">
+                            <b>Organizing and Managing</b> your team to complement each of your team members' strengths is essential to <b>performing</b> well in FTC. <br>
+                            Take some help from this guide to understand how to create or improve your team structure to ensure <b>success</b>.
+                        </div>
+
+                        <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris,
+                            consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis
+                            elit. Pellentesque enim turpis, hendrerit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum.
+                            Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum
+                            sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                        <hr class="major" id="subteams" />
+
+                        <h2 id="subteamsHeader">Subteam Creation</h2>
+                        <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris,
+                            consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis
+                            elit. Pellentesque enim turpis, hendrerit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum.
+                            Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac
+                            ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus,
+                            commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                        <hr class="major" id="ratio" />
+
+                        <h2 id="ratioHeader">Student / Mentor Ratio</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum.
+                            Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum
+                            sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                        <hr class="major" id="organization" />
+
+                        <h2 id="organizationHeader">Part Storage and Organization</h2>
+                        <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris,
+                            consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis
+                            elit. Pellentesque enim turpis, hendrerit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum.
+                            Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+
+                        <hr class="major" id="time" />
+
+                        <h2 id="timeHeader">Part Storage and Organization</h2>
+                        <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris,
+                            consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis
+                            elit. Pellentesque enim turpis, hendrerit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum.
+                            Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                    </section>
                 </div>
             </div>
         </div>
@@ -942,12 +894,12 @@ $body.on('click touchend', function(event) {
                         <li><a href="#" id="button2">Our Mission</a></li>
                         <li><a href="#" id="button3">Elements</a></li>
                         <li>
-                            <span class="opener">Submenu</span>
+                            <span class="opener" id="button4">Team Management</span>
                             <ul>
-                                <li><a href="#">Lorem Dolor</a></li>
-                                <li><a href="#">Ipsum Adipiscing</a></li>
-                                <li><a href="#">Tempus Magna</a></li>
-                                <li><a href="#">Feugiat Veroeros</a></li>
+                                <li><a href="#subteamsHeader">Subteams</a></li>
+                                <li><a href="#ratioHeader">Student / Mentor Ratio</a></li>
+                                <li><a href="#organizationHeader">Parts Organization</a></li>
+                                <li><a href="#timeHeader">Time Management</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Etiam Dolore</a></li>
