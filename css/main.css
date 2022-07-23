@@ -489,6 +489,15 @@ hr.major {
     transition: text 0.6s cubic-bezier(.19, 1, .22, 1);
 }
 
+/* Icon Styling */
+
+.fa-solid::before {
+    color: transparent;
+    position: relative;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, var(--main), white);
+}
 
 /* Preloader */
 
