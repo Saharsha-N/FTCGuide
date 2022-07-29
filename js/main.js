@@ -276,16 +276,19 @@
     var $two = $('#second');
     var $three = $('#third');
     var $four = $('#fourth');
+    var $five = $('#fifth');
     var $button1 = $('#button1');
     var $button2 = $('#button2');
     var $button3 = $('#button3');
     var $button4 = $('#button4');
+    var $button5 = $('#button5');
 
     $button1.on('click', function() {
         $one.addClass('show');
         $two.removeClass('show');
         $three.removeClass('show');
         $four.removeClass('show');
+        $five.removeClass('show');
     });
     $button2.on('click', function() {
         $one.removeClass('show');
@@ -293,6 +296,7 @@
         $two.addClass('show');
         $three.removeClass('show');
         $four.removeClass('show');
+        $five.removeClass('show');
     });
     $button3.on('click', function() {
         $one.removeClass('show');
@@ -300,6 +304,7 @@
         $two.removeClass('show');
         $three.addClass('show');
         $four.removeClass('show');
+        $five.removeClass('show');
     });
     $button4.on('click', function() {
         $one.removeClass('show');
@@ -307,6 +312,15 @@
         $two.removeClass('show');
         $three.removeClass('show');
         $four.addClass('show');
+        $five.removeClass('show');
+    });
+    $button5.on('click', function() {
+        $one.removeClass('show');
+        $one.css('display', 'none');
+        $two.removeClass('show');
+        $three.removeClass('show');
+        $four.removeClass('show');
+        $five.addClass('show');
     })
 
 })(jQuery);
